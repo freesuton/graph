@@ -1,0 +1,65 @@
+#What pools exist that include it?
+{
+  pools(first:10, where:{
+    token0:"0x6b3595068778dd592e39a122f4f5a5cf09c90fe2"
+  }){
+    id
+    token0{
+      symbol
+    }
+    token1{
+      symbol
+    }
+    
+  pools(where:{
+    token1:"0x6b3595068778dd592e39a122f4f5a5cf09c90fe2"
+  }){
+    id
+    token0{
+      symbol
+    }
+    token1{
+      symbol
+    }
+}
+
+
+#What is the total volume of that asset swapped in a given time range?
+{
+  tokenDayDatas(where: {token: "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2"}){
+    date
+    token{
+      id
+    }
+    volume
+  }
+}
+
+
+#What swaps occurred during that specific block?
+{
+  swaps(block:{number:14516550}){
+      token0{
+        symbol
+      }
+    	token1{
+        symbol
+      }
+    sender
+    recipient
+    amount0
+    amount1
+  }
+}
+
+#List all assets swapped during that specific block
+{
+  swaps(block:{number:14516550}){
+    token0{
+      symbol
+    }
+    token1{
+      symbol
+    }
+  }
+}
