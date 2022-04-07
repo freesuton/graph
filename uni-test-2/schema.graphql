@@ -5,27 +5,7 @@ type Factory @entity {
   poolCount: BigInt!
   # amoutn of transactions all time
   txCount: BigInt!
-  # total volume all time in derived USD
-  totalVolumeUSD: BigDecimal!
-  # total volume all time in derived ETH
-  totalVolumeETH: BigDecimal!
-  # total swap fees all time in USD
-  totalFeesUSD: BigDecimal!
-  # total swap fees all time in USD
-  totalFeesETH: BigDecimal!
-  # all volume even through less reliable USD values
-  untrackedVolumeUSD: BigDecimal!
-  # TVL derived in USD
-  totalValueLockedUSD: BigDecimal!
-  # TVL derived in ETH
-  totalValueLockedETH: BigDecimal!
-  # TVL derived in USD untracked
-  totalValueLockedUSDUntracked: BigDecimal!
-  # TVL derived in ETH untracked
-  totalValueLockedETHUntracked: BigDecimal!
-  # current owner of the factory
-  owner: ID!
-
+  # amount of unique users
   userCount: BigInt!
 }
 
