@@ -20,12 +20,10 @@ export const FACTORY_ADDRESS = '0x1F98431c8aD98523631AE4a59f267346ea31F984'
 
 export function handleInitialize(event: Initialize): void {
     // update pool sqrt price and tick
-
     let pool = Pool.load(event.address.toHexString())
     // pool.sqrtPrice = event.params.sqrtPriceX96
     // pool.tick = BigInt.fromI32(event.params.tick)
     // pool.save()
-
 }
 
 
@@ -53,6 +51,7 @@ export function handleSwap(event: SwapEvent): void {
         account.save();
         factory.userCount = factory.userCount.plus(ONE_BI)
       }
+      
     factory.save()
     swap.save()
 }
@@ -69,6 +68,7 @@ export function handleMint(event: MintEvent): void {
     if(pool == null){
         pool = new Pool(event.address.toHexString())
     }
+
     let transaction = loadTransaction(event)
     let mint = new Mint(transaction.id.toString() + '#' + pool.txCount.toString())
     mint.transaction = transaction.id
